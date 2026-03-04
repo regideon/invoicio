@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 
 use App\Livewire\Clients\ClientList;
 use App\Livewire\Dashboard;
+use App\Livewire\Products\ProductList;
 
 Route::get('/', fn() => redirect('/login'));
 
@@ -20,8 +21,8 @@ Route::middleware('guest')->group(function () {
 // Authenticated routes
 Route::middleware('auth')->prefix('zpanel')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-
     Route::get('/clients', ClientList::class)->name('clients.index');
+    Route::get('/products', ProductList::class)->name('products.index'); 
 });
 
 Route::post('/logout', function () {

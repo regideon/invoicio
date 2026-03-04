@@ -43,9 +43,10 @@
                 <span class="material-symbols-outlined text-xl">group</span>
                 <span>Clients</span>
             </a>
-            <a href="#"
-               class="flex items-center gap-3 px-3 py-2 rounded-lg transition-all hover:bg-slate-800 hover:text-white">
-                <span class="material-symbols-outlined text-slate-400 text-xl">inventory_2</span>
+            <a href="{{ route('products.index') }}"
+            class="flex items-center gap-3 px-3 py-2 rounded-lg transition-all
+                    {{ request()->routeIs('products.*') ? 'text-white bg-blue-600/20 border-l-4 border-blue-600' : 'hover:bg-slate-800 hover:text-white' }}">
+                <span class="material-symbols-outlined text-xl">inventory_2</span>
                 <span>Products</span>
             </a>
             <a href="#"
