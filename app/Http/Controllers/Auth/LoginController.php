@@ -21,7 +21,7 @@ class LoginController extends Controller
 
         if (auth()->attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect()->intended('/zpanel/dashboard');
         }
 
         return back()->withErrors([

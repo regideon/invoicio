@@ -32,9 +32,10 @@
                 <span class="material-symbols-outlined text-xl">dashboard</span>
                 <span class="font-medium">Dashboard</span>
             </a>
-            <a href="#"
-               class="flex items-center gap-3 px-3 py-2 rounded-lg transition-all hover:bg-slate-800 hover:text-white">
-                <span class="material-symbols-outlined text-slate-400 text-xl">description</span>
+            <a href="{{ route('invoices.index') }}"
+            class="flex items-center gap-3 px-3 py-2 rounded-lg transition-all
+                    {{ request()->routeIs('invoices.*') ? 'text-white bg-blue-600/20 border-l-4 border-blue-600' : 'hover:bg-slate-800 hover:text-white' }}">
+                <span class="material-symbols-outlined text-xl">description</span>
                 <span>Invoices</span>
             </a>
             <a href="{{ route('clients.index') }}"
@@ -49,15 +50,17 @@
                 <span class="material-symbols-outlined text-xl">inventory_2</span>
                 <span>Products</span>
             </a>
-            <a href="#"
-               class="flex items-center gap-3 px-3 py-2 rounded-lg transition-all hover:bg-slate-800 hover:text-white">
-                <span class="material-symbols-outlined text-slate-400 text-xl">payments</span>
+            <a href="{{ route('payments.index') }}"
+            class="flex items-center gap-3 px-3 py-2 rounded-lg transition-all
+                    {{ request()->routeIs('payments.*') ? 'text-white bg-blue-600/20 border-l-4 border-blue-600' : 'hover:bg-slate-800 hover:text-white' }}">
+                <span class="material-symbols-outlined text-xl">payments</span>
                 <span>Payments</span>
             </a>
-            <a href="#"
-               class="flex items-center gap-3 px-3 py-2 rounded-lg transition-all hover:bg-slate-800 hover:text-white">
-                <span class="material-symbols-outlined text-slate-400 text-xl">bar_chart</span>
-                <span>Reports</span>
+            <a href="{{ route('reports.index') }}"
+            class="flex items-center gap-3 px-3 py-2 rounded-lg transition-all
+                    {{ request()->routeIs('reports.*') ? 'text-white bg-blue-600/20 border-l-4 border-blue-600' : 'hover:bg-slate-800 hover:text-white' }}">
+                <span class="material-symbols-outlined text-xl">bar_chart</span>
+                <span>AI Reports</span>
             </a>
         </nav>
 

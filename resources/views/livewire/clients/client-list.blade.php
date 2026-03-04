@@ -62,10 +62,15 @@
                         <td class="px-6 py-4 text-slate-500">{{ $client->company ?? '—' }}</td>
                         <td class="px-6 py-4 text-right">
                             <div class="flex items-center justify-end gap-2">
+                                <a href="{{ route('clients.show', $client) }}"
+                                    class="text-slate-400 hover:text-purple-600 transition-colors">
+                                    <span class="material-symbols-outlined text-xl">visibility</span>
+                                </a>
                                 <button wire:click="openEditModal({{ $client->id }})"
                                     class="text-slate-400 hover:text-blue-600 transition-colors">
                                     <span class="material-symbols-outlined text-xl">edit</span>
                                 </button>
+                                
                                 <button wire:click="delete({{ $client->id }})"
                                     wire:confirm="Are you sure you want to delete this client?"
                                     class="text-slate-400 hover:text-red-500 transition-colors">
@@ -158,6 +163,8 @@
                     class="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
                     {{ $isEditing ? 'Update Client' : 'Create Client' }}
                 </button>
+
+                
             </div>
         </div>
     </div>

@@ -15,8 +15,28 @@ class Client extends Model
         'company',
     ];
 
+
+
+    public function aiInsights()
+    {
+        return $this->morphMany(AiInsight::class, 'subject')->latest();
+    }
+
+    public function latestInsight(string $type): ?AiInsight
+    {
+        return $this->aiInsights()->where('type', $type)->first();
+    }
+
+
+
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class)->latest();
     }
 }
