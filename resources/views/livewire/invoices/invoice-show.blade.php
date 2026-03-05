@@ -19,6 +19,7 @@
             @php
                 $statusClass = match($invoice->status) {
                     'paid'    => 'bg-emerald-100 text-emerald-800',
+                    'partial' => 'bg-amber-100 text-amber-800',
                     'sent'    => 'bg-blue-100 text-blue-800',
                     'overdue' => 'bg-rose-100 text-rose-800',
                     default   => 'bg-slate-100 text-slate-600',
@@ -26,6 +27,7 @@
 
                 $statusIcon = match($invoice->status) {
                     'paid'    => 'check_circle',
+                    'partial' => 'hourglass_top',
                     'sent'    => 'send',
                     'overdue' => 'error',
                     default   => 'draft',
@@ -60,6 +62,7 @@
                 class="px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20">
                 <option value="draft"   {{ $invoice->status === 'draft'   ? 'selected' : '' }}>Draft</option>
                 <option value="sent"    {{ $invoice->status === 'sent'    ? 'selected' : '' }}>Sent</option>
+                <option value="partial" {{ $invoice->status === 'partial' ? 'selected' : '' }}>Partial</option>
                 <option value="paid"    {{ $invoice->status === 'paid'    ? 'selected' : '' }}>Paid</option>
                 <option value="overdue" {{ $invoice->status === 'overdue' ? 'selected' : '' }}>Overdue</option>
             </select>

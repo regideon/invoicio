@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('client_id')->constrained()->cascadeOnDelete();
             $table->string('invoice_number')->unique();
-            $table->enum('status', ['draft', 'sent', 'paid', 'overdue'])->default('draft');
+            $table->enum('status', ['draft', 'sent', 'partial', 'paid', 'overdue'])->default('draft');
             $table->date('issue_date');
             $table->date('due_date');
             $table->decimal('subtotal', 10, 2)->default(0);

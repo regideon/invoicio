@@ -41,6 +41,7 @@
                 <option value="">All Status</option>
                 <option value="draft">Draft</option>
                 <option value="sent">Sent</option>
+                <option value="partial">Partial</option>
                 <option value="paid">Paid</option>
                 <option value="overdue">Overdue</option>
             </select>
@@ -83,6 +84,7 @@
                                 {{ $invoice->getStatusColorClass() }}">
                                 <option value="draft"   {{ $invoice->status === 'draft'   ? 'selected' : '' }}>Draft</option>
                                 <option value="sent"    {{ $invoice->status === 'sent'    ? 'selected' : '' }}>Sent</option>
+                                <option value="partial" {{ $invoice->status === 'partial' ? 'selected' : '' }}>Partial</option>
                                 <option value="paid"    {{ $invoice->status === 'paid'    ? 'selected' : '' }}>Paid</option>
                                 <option value="overdue" {{ $invoice->status === 'overdue' ? 'selected' : '' }}>Overdue</option>
                             </select>

@@ -66,6 +66,7 @@ class Invoice extends Model
     {
         return match($this->status) {
             'paid'    => 'bg-emerald-100 text-emerald-800',
+            'partial' => 'bg-amber-100 text-amber-800',
             'sent'    => 'bg-blue-100 text-blue-800',
             'overdue' => 'bg-rose-100 text-rose-800',
             default   => 'bg-slate-100 text-slate-600',

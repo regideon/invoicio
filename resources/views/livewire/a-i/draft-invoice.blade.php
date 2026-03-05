@@ -119,6 +119,7 @@
                                 class="w-full px-4 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500">
                                 <option value="draft">Draft</option>
                                 <option value="sent">Sent</option>
+                                <option value="partial">Partial</option>
                                 <option value="paid">Paid</option>
                                 <option value="overdue">Overdue</option>
                             </select>

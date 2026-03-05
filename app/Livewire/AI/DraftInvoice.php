@@ -204,7 +204,7 @@ Parse this invoice description into JSON:
     {
         $this->validate([
             'client_id'          => 'required|exists:clients,id',
-            'status'             => 'required|in:draft,sent,paid,overdue',
+            'status'             => 'required|in:draft,sent,partial,paid,overdue',
             'issue_date'         => 'required|date',
             'due_date'           => 'required|date|after_or_equal:issue_date',
             'items'              => 'required|array|min:1',

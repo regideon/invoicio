@@ -31,7 +31,7 @@ class PaymentList extends Component
         $this->payment_date = now()->format('Y-m-d');
         $this->invoices     = auth()->user()->invoices()
             ->with('client')
-            ->whereIn('status', ['sent', 'overdue'])
+            ->whereIn('status', ['sent', 'partial', 'overdue'])
             ->orderBy('due_date')
             ->get();
     }
@@ -72,9 +72,9 @@ class PaymentList extends Component
         $invoice   = Invoice::with('payments')->find($this->invoice_id);
         $totalPaid = $invoice->payments->sum('amount');
 
-        if ($totalPaid >= $invoice->total) {
-            $invoice->update(['status' => 'paid']);
-        }
+        $invoice->update([
+            'status' => $totalPaid >= $invoice->total ? 'paid' : 'partial',
+        ]);
 
         $this->showModal = false;
         $this->resetForm();
